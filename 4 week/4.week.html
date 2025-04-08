@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIANT</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .btn {
+      cursor: pointer;
+      font-weight: bold;
+      margin: 10px;
+      padding: 20px;
+      font-size: 28px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #f0f0f0;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      position: relative;
+    }
+    #giant-title {
+      font-size: 18vw;
+      font-weight: bold;
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-transform: uppercase;
+      letter-spacing: -0.5vw;
+      writing-mode: horizontal-tb;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    #top-left-label {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 10;
+    }
+    .content-area {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+      margin-left: clamp(200px, 32vw, 400px);
+    }
+    .content {
+      display: none;
+      padding: 20px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .visible {
+      display: block;
+    }
+    .content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .content strong {
+      display: block;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+    footer {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="btn" onclick="showContent('who')">Who is Robinson Crusoe?</div>
+    <div class="btn" onclick="showContent('kit')">Island Survival Kit</div>
+    <div class="btn" onclick="showContent('exploration')">Island Exploration</div>
+    <div class="btn" onclick="showContent('quotes')">Quotes of a Giant</div>
+    <div class="btn" onclick="showContent('author')">About the Author</div>
+    <div class="btn" onclick="showContent('buy')">Buy the Book</div>
+  </header>
+
+  <main>
+    <div id="giant-title">Giant</div>
+    <div id="top-left-label">Robinson Crusoe</div>
+    <div class="content-area">
+      <div id="who" class="content visible">
+        <p><strong>Who is Robinson Crusoe?</strong>
+        He was an ordinary man who became a GIANT of legend. Leaving behind the comforts of civilization, he carved a life out of nothing with only his hands and his mind. Crusoe is more than a survivor — he is a thinker, a builder, and a myth. Through this section, follow his inner world and understand how a man became an island, and an island became a world.</p>
+        <p><strong>Robinson Crusoe’s Story</strong>
+        Robinson Crusoe, a restless Englishman, defied his father’s advice and ventured out to sea. After surviving a violent shipwreck, he found himself alone on a deserted island. With ingenuity and perseverance, he built shelter, grew food, and protected himself from threats. Years passed in solitude until he met Friday, a native man he saved from danger. Their friendship transformed the island from a prison to a home. Eventually rescued, Crusoe returned to England not just as a survivor, but as a changed man — a symbol of resilience, adaptation, and the will to live meaningfully, even in isolation.</p>
+      </div>
+      <div id="kit" class="content">
+        <p><strong>Island Survival Kit</strong>
+        If you were stranded on a deserted island tomorrow, what would you bring? The key to survival is not tools — it’s choices. Based on Crusoe’s own wisdom, we reimagine a modern GIANT survival kit. Discover what’s essential, what’s useless, and what makes the difference between fear and freedom.</p>
+      </div>
+      <div id="exploration" class="content">
+        <p><strong>Island Exploration</strong></p>
+       
+       
+        <p><strong>The River Crossing</strong><br>
+        With each attempt to build a raft or bridge, Crusoe pushed the boundary of his confinement. The river was more than water — it was a test of belief that the world still existed beyond the trees.</p>
+        <p><strong>Map of the Mind</strong><br>
+        These places are more than landmarks — they are decisions, memories, and turning points. To explore the island is to explore Crusoe himself. With every footstep, he drew not just a map of land, but of resilience.</p>
+      </div>
+      <div id="quotes" class="content">
+        <p><strong>Quotes of a Giant</strong>
+        "I lost my freedom, but I found myself."<br>
+        Crusoe’s solitude became a canvas for his thoughts. His words carry the weight of silence, of survival, of becoming. These timeless GIANT quotes are more than sentences — they are echoes from the edge of the known world. Let one of them become the compass for your own journey.</p>
+      </div>
+      <div id="author" class="content">
+        <p><strong>About the Author</strong>
+        Daniel Defoe wasn’t just a writer — he was a GIANT of thought. With the eye of a merchant and the soul of a poet, he created Crusoe to challenge the very idea of civilization, control, and isolation. Learn about the man whose pen drew an entire island into the minds of millions, and who proved that fiction can shape reality.</p>
+      </div>
+      <div id="buy" class="content">
+        <p><strong>Buy the Book</strong>
+        This is not just a book. It is a GIANT experience — a survival story, a philosophical journey, a blueprint for self-reliance. Robinson Crusoe continues to resonate through centuries because it’s not just about an island — it’s about what we do when everything else is gone.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function showContent(id) {
+      const contents = document.querySelectorAll('.content');
+      const clicked = document.getElementById(id);
+      const isVisible = clicked.classList.contains('visible');
+      contents.forEach(content => content.classList.remove('visible'));
+      if (!isVisible) {
+        clicked.classList.add('visible');
+      }
+    }
+  </script>
+</body>
+</html>
