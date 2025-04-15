@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Dancing Grid</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #111; overflow: hidden; }
+
+    .box {
+      position: absolute;
+      width: 10vw; height: 10vh;
+      line-height: 10vh;
+      text-align: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 10pt;
+      border-radius: 8px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+<script>
+  let texts = "";
+  let idx = 0;
+  const rows = 10, cols = 10;
+
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const left = x * 10;
+      const top = y * 10;
+      const r = Math.floor(Math.random() * 155 + 100);
+      const g = Math.floor(Math.random() * 155 + 100);
+      const b = Math.floor(Math.random() * 155 + 100);
+      texts += `
+        <div class="box" 
+          style="left:${left}vw; top:${top}vh; 
+                 background-color:rgb(${r},${g},${b});"
+        >
+          No.${idx}
+        </div>
+      `;
+      idx++;
+    }
+  }
+
+  document.write(texts);
+
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function updateBoxes() {
+    const boxes = document.querySelectorAll(".box");
+    let i = 0;
+    boxes.forEach(box => {
+      const r = Math.floor(Math.random() * 255);
+      const g = Math.floor(Math.random() * 255);
+      const b = Math.floor(Math.random() * 255);
+      box.style.backgroundColor = `rgb(${r},${g},${b})`;
+
+      const angle = (mouseX + mouseY) * 0.05 + i * 0.3;
+      box.style.transform = `rotate(${angle}deg) scale(1.05)`;
+      i++;
+    });
+  }
+
+  setInterval(updateBoxes, 100);
+</script>
+</body>
+</html>
